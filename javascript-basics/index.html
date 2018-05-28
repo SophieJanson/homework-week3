@@ -5,9 +5,13 @@
     <title></title>
   </head>
   <body>
-    <input class="temp" value="" placeholder="Insert temperature"><button data-submit="temp" class="temp">Submit</button>
-    <input class="evenOdd" value="" placeholder="Insert number"><button data-submit="evenOdd" class="evenOdd">Submit</button>
-    <input class="lang" value="" placeholder="Insert language"><button data-submit="lang" class="lang">Submit</button>
-    <script src="temp.js"></script>
+    <input name="height" type="number" id="height" class="field" placeholder="height" required/>
+    <input name="weight" type="number" id="weight" class="field" placeholder="weight" required/>
+    <input name="age" type="number" id="age" class="field" placeholder="age"/>
+    <input name="gender" type="text" id="gender" class="field" placeholder="gender"/>
+    <input name="exerciseLevel" type="number" id="exerciseLevel" class="field" placeholder="exerciseLevel"/>
+    <button type="submit" id="submit">Submit</button>
+
+    <script src="bmi.js"></script>
   </body>
 </html>
