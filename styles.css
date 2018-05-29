@@ -2,34 +2,34 @@
 
 * { box-sizing: border-box }
 
-#product-overview {
+.product-overview {
   box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
   background-color: #f8f8f8;
   border-radius: 5px;
   padding: 0.5em;
-  margin:  0 2em;
+  margin:  0 2em 2em;
 }
 
-#product-overview h3 {
+.product-overview h3 {
   text-align: center;
 }
 
-#product-overview .product:hover {
+.product-overview .product:hover {
   background-color: #eee;
 }
 
-#product-overview span{
+.product-overview span{
   display: inline-block;
   width: 19%;
   padding: 0 1rem;
 }
 
-#product-overview span.name{
-  width: 60%;
+.product-overview span.name{
+  width: 40%;
 }
 
-#product-overview span.referenceNumber {
-  text-align: right;
+.product-overview span.referenceNumber {
+  text-align: left;
 }
 
 .header-line {
