@@ -39,7 +39,7 @@
 }
 .shopping-cart-bar {
   display: flex;
-  text-align: center;
+  justify-content: space-between;
 }
 #shopping-cart h3 {
   display: inline-flex;

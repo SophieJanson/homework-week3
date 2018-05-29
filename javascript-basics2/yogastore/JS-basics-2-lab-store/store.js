@@ -30,9 +30,9 @@ var shopFromStore = function (referenceNumber) {
   shop();
   // calculate the total price of your cart, and use it:
 }
-  // Ask the user if they want to continue shopping,
-  // if yes, call this function again
-  // if no, print the goodbye message
+var removeItem = function(referenceNumber) {
+  console.log("remove: ", referenceNumber);
+}
 var displayProductsFromShoppingCart = function(newProduct) {
   let product = newProduct;
   var referenceNumberElement = document.createElement('span');
@@ -44,7 +44,7 @@ var displayProductsFromShoppingCart = function(newProduct) {
   priceElement.innerText = product.price;
 
   var productElement = document.createElement('div');
-  productElement.className = 'product';
+  productElement.className = 'product shopping-cart-item';
   productElement.setAttribute('data-ref-number', product.referenceNumber);
 
   productElement.appendChild(referenceNumberElement);
@@ -55,6 +55,17 @@ var displayProductsFromShoppingCart = function(newProduct) {
   // use the printProductsOnScreen function for inspiration
 };
 
+var checkout = function() {
+  window.alert("Thanks for your purchase!");
+  document.getElementById('shopping-cart').innerHTML = `<div class="shopping-cart-bar">
+    <h3>Your selected products</h3>
+    <button class="checkout">Checkout</button>
+  </div>
+  <span class="header-line cart cart-reference-number">Ref. Nr</span>
+  <span class="header-line cart cart-price">Price</span>`;
+  totalPrice = 0;
+
+}
 //
 // do not change the code below (but feel free to change it if your WHOLE project works!)
 //
@@ -109,9 +120,18 @@ var createProductEventListeners = function() {
   }
 };
 
+var createCheckoutEventListener = function() {
+  document.getElementsByClassName('checkout')[0].addEventListener("click", function() {
+    checkout();
+    displayTotalPrice(totalPrice);
+
+  })
+}
+
 var runApp = function () {
   printProductsOnScreen();
   createProductEventListeners();
+  createCheckoutEventListener();
 };
 
 document.onreadystatechange = function () {
