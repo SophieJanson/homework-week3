@@ -37,6 +37,17 @@
   background-color: #fff;
   font-size:  110%;
 }
+.shopping-cart-bar {
+  display: flex;
+  text-align: center;
+}
+#shopping-cart h3 {
+  display: inline-flex;
+}
+.checkout {
+  position: relative;
+  display: inline-flex;
+}
 
 footer {
   position: fixed;
