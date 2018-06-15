@@ -1,15 +1,35 @@
 // TODO:
 // var products = []
 var products = [
-  { referenceNumber: 1231, name: "Super Lite Mat", category: "mats", price: 10 },
-  { referenceNumber: 1232, name: "Power Mat", category: "mats", price: 20 },
-  { referenceNumber: 1233, name: "Block", category: "attributes", price: 30 },
-  { referenceNumber: 1234, name: "Meditation cushion", category: "mats", price: 30 },
-  { referenceNumber: 1235, name: "The best T-shirt", category: "clothing", price: 200 },
-  { referenceNumber: 1236, name: "The cutest yoga pants", category: "clothing", price: 300 },
-  { referenceNumber: 1237, name: "Bring Yoga To Life", category: "books", price: 30 },
-  { referenceNumber: 1238, name: "Light On Yoga", category: "misc", price: 10 }
+  { referenceNumber: 1231, name: "Super Lite Mat", price: 10 },
+  { referenceNumber: 1232, name: "Power Mat", price: 20 },
+  { referenceNumber: 1233, name: "Block", price: 30 },
+  { referenceNumber: 1234, name: "Meditation cushion", price: 30 },
+  { referenceNumber: 1235, name: "The best T-shirt", price: 200 },
+  { referenceNumber: 1236, name: "The cutest yoga pants", price: 300 },
+  { referenceNumber: 1237, name: "Bring Yoga To Life", price: 30 },
+  { referenceNumber: 1238, name: "Light On Yoga", price: 10 }
 ]
+
+var departments = {
+  mats: [
+    { referenceNumber: 1231, name: "Super Lite Mat", price: 10 },
+    { referenceNumber: 1232, name: "Power Mat", price: 20 },
+  ],
+  props: [
+    { referenceNumber: 1233, name: "Block", price: 30 },
+    { referenceNumber: 1234, name: "Meditation cushion", price: 30 },
+  ],
+  clothes: [
+    { referenceNumber: 1235, name: "The best T-shirt", price: 200 },
+    { referenceNumber: 1236, name: "The cutest yoga pants", price: 300 },
+  ],
+  books: [
+    { referenceNumber: 1237, name: "Bring Yoga To Life", price: 30 },
+    { referenceNumber: 1238, name: "Light On Yoga", price: 10 },
+  ]
+};
+
 // Declare `shoppingCart`, something where you will be storing all products that the user buys.
 let shoppingCart = [];
 let totalPrice = 0;
@@ -74,7 +94,25 @@ var displayTotalPrice = function (amount = 0) {
   document.getElementById('total-price').innerText = amount;
 };
 
+var printDepartmentsOnScreen = function() {
+  let departmentsArray = Object.keys(departments);
+  departmentsArray.forEach(function(dept) {
+    let button = document.createElement('button');
+    button.className = 'department-button';
+    button.setAttribute('data-department', dept);
+    button.innerText = dept.toString().substr(0,1).toUpperCase() + dept.toString().substring(1);
+    button.addEventListener("click", function() {
+      products = departments[dept];
+      console.log(products);
+      printProductsOnScreen();
+      createProductEventListeners();
+    });
+    document.getElementById('departments').appendChild(button);
+
+  });
+}
 var printProductsOnScreen = function () {
+  document.getElementById('products-container').innerHTML = "";
   for(var product of products){
 
     // create elements for refNr, name, price, with a class and the proper innerText
@@ -86,10 +124,6 @@ var printProductsOnScreen = function () {
     nameElement.className  = 'name';
     nameElement.innerText = product.name;
 
-    var categoryElement = document.createElement('span');
-    categoryElement.className  = 'category';
-    categoryElement.innerText = product.category;
-
     var priceElement = document.createElement('span');
     priceElement.className  = 'price';
     priceElement.innerText = product.price;
@@ -97,16 +131,15 @@ var printProductsOnScreen = function () {
 
     // Wrap our just created elements in a div
     var productElement = document.createElement('div');
-    productElement.className = 'product';
+    productElement.className = 'product purchaseable-product';
     productElement.setAttribute('data-ref-number', product.referenceNumber);
 
     productElement.appendChild(referenceNumberElement);
     productElement.appendChild(nameElement);
-    productElement.appendChild(categoryElement);
     productElement.appendChild(priceElement);
 
     // Hang that div on the page
-    document.getElementById('product-overview').appendChild(productElement);
+    document.getElementById('products-container').appendChild(productElement);
   }
 };
 
@@ -129,9 +162,8 @@ var createCheckoutEventListener = function() {
 }
 
 var runApp = function () {
-  printProductsOnScreen();
-  createProductEventListeners();
   createCheckoutEventListener();
+  printDepartmentsOnScreen();
 };
 
 document.onreadystatechange = function () {
