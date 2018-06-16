@@ -12,6 +12,7 @@ const reducer = (state = initialState, action = {}) => {
       randomWord: action.payload
     }
   }
+
   if(action.type === MAKE_GUESS) {
     return {
       ...state,

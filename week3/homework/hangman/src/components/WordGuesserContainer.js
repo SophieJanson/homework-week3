@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as gameLogic from '../lib/game'
 import WordGuesser from './WordGuesser'
 import { makeGuess } from '../actions/game'
 import { connect } from 'react-redux'
@@ -10,6 +9,7 @@ class WordGuesserContainer extends React.PureComponent {
     e.preventDefault()
     if (this.state.userInput) {
       this.props.makeGuess(this.state.userInput)
+      e.target.reset()
     }
   }
 

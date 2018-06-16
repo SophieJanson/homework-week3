@@ -3,6 +3,7 @@ import { Route } from 'react-router'
 import WelcomeMessage from './components/WelcomeMessage'
 import WordContainer from './components/WordContainer'
 import WordGuesserContainer from './components/WordGuesserContainer'
+import ScoreContainer from './components/ScoreContainer'
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,8 @@ class App extends Component {
           <Route exact path="/" component={WelcomeMessage} />
           <Route path="/hangman" component={WordContainer} />
           <Route path="/hangman" component={WordGuesserContainer} />
+          <Route path="/hangman" component={ScoreContainer} />
+
         </main>
       </div>
     );
