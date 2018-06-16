@@ -1,0 +1,11 @@
+.keyboard {
+  max-width: 60%;
+}
+
+.keyboard-letter {
+  height: 60px;
+  width: 60px;
+  font-size: 24px;
+  padding: auto;
+  margin: 2px;
+}

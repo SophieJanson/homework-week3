@@ -1,7 +1,8 @@
 import * as React from 'react'
 import * as gameLogic from '../lib/game'
 import Word from './Word'
-import WordGuesser from './WordGuesser'
+import NewGameButton from './NewGameButton'
+import KeyBoard from './KeyBoard'
 import { newGame, makeGuess } from '../actions/game'
 import { connect } from 'react-redux'
 
@@ -38,9 +39,9 @@ class WordContainer extends React.PureComponent {
     }
     return (
       <div className="game">
-        <h1>HANGMAN</h1>
         <Word randomWord={this.maskWord()} />
-        <WordGuesser makeGuess={this.props.makeGuess} newGame={this.props.newGame} />
+        <KeyBoard makeGuess={this.props.makeGuess} />
+        <NewGameButton newGame={this.props.newGame} />
       </div>
     )
   }

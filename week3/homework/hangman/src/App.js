@@ -10,10 +10,10 @@ class App extends Component {
     return (
       <div className="App">
         <main>
+          <h1>Hangman</h1>
           <Route exact path="/" component={WelcomeMessage} />
           <Route path="/hangman" component={WordContainer} />
           <Route path="/hangman" component={ScoreContainer} />
-
         </main>
       </div>
     );
