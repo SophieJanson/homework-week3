@@ -5,7 +5,7 @@ export default function WelcomeMessage(props) {
   return(
     <div>
       <p>Hello there!</p>
-      <Link to={`./hangman`}><p>Play Game</p></Link>
+      <Link to={`./hangman`}><span className="button start">Play Game</span></Link>
     </div>
   )
 }

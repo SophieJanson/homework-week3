@@ -1,7 +1,8 @@
 import * as React from 'react'
 import * as gameLogic from '../lib/game'
 import Word from './Word'
-import { newGame } from '../actions/game'
+import WordGuesser from './WordGuesser'
+import { newGame, makeGuess } from '../actions/game'
 import { connect } from 'react-redux'
 
 
@@ -11,7 +12,7 @@ class WordContainer extends React.PureComponent {
     console.log(this.props.randomWord);
   }
 
-  hideWord = () => {
+  maskWord = () => {
     return gameLogic.showGuess(this.props.randomWord, this.props.guesses)
   }
 
@@ -35,8 +36,13 @@ class WordContainer extends React.PureComponent {
         <h2>{this.evaluateGameEndResult()}</h2>
       )
     }
-
-    return <Word randomWord={this.hideWord()} />
+    return (
+      <div className="game">
+        <h1>HANGMAN</h1>
+        <Word randomWord={this.maskWord()} />
+        <WordGuesser makeGuess={this.props.makeGuess} newGame={this.props.newGame} />
+      </div>
+    )
   }
 }
 
@@ -48,4 +54,4 @@ const setStateToProps = (state) => {
   }
 }
 
-export default connect(setStateToProps, { newGame })(WordContainer)
+export default connect(setStateToProps, { newGame, makeGuess })(WordContainer)

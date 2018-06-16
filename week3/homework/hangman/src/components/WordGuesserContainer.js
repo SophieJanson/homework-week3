@@ -32,10 +32,4 @@ class WordGuesserContainer extends React.PureComponent {
   }
 }
 
-const setStateToProps = (state) => {
-  return {
-    makeGuess
-  }
-}
-
-export default connect(setStateToProps, { makeGuess, newGame })(WordGuesserContainer)
+export default connect(null, { makeGuess, newGame })(WordGuesserContainer)
