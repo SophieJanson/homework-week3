@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 class WordContainer extends React.PureComponent {
   componentDidMount() {
-    this.props.newGame(gameLogic.randomWord())
+    this.props.newGame()
     console.log(this.props.randomWord);
   }
 

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import WordGuesser from './WordGuesser'
-import { makeGuess } from '../actions/game'
+import NewGameButton from './NewGameButton'
+import { makeGuess, newGame } from '../actions/game'
 import { connect } from 'react-redux'
 
 
@@ -17,8 +18,17 @@ class WordGuesserContainer extends React.PureComponent {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  newButtonClickHandler = () => {
+    this.props.newGame()
+  }
+
   render() {
-    return <WordGuesser handleSubmit={this.handleSubmit} handleChange={this.handleChange}  />
+    return (
+      <div>
+        <WordGuesser handleSubmit={this.handleSubmit} handleChange={this.handleChange}  />
+        <NewGameButton newButtonClickHandler={this.newButtonClickHandler}/>
+      </div>
+    )
   }
 }
 
@@ -28,4 +38,4 @@ const setStateToProps = (state) => {
   }
 }
 
-export default connect(setStateToProps, { makeGuess })(WordGuesserContainer)
+export default connect(setStateToProps, { makeGuess, newGame })(WordGuesserContainer)

@@ -12,8 +12,8 @@ class ScoreContainer extends React.PureComponent {
   render() {
     console.log("test");
     console.log("p", this.props);
-    // if (this.props.guesses.length === 0) return 'Make your first guess and be awesome'
-    return <Score wrongGuessCount={this.getWrongGuesses()} />
+    if (this.props.guesses.length === 0) return 'Make your first guess and be awesome'
+    return <Score wrongGuessCount={this.getWrongGuesses()} guesses={this.props.guesses}/>
   }
 }
 
