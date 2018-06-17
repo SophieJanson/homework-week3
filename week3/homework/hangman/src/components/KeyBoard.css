@@ -9,3 +9,8 @@
   padding: auto;
   margin: 2px;
 }
+
+.keyboard-letter:disabled {
+  background-color: lightgrey;
+  color: #fff;
+}

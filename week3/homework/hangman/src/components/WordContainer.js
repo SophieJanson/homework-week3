@@ -31,17 +31,17 @@ class WordContainer extends React.PureComponent {
 
   render() {
     if (!this.props.randomWord) return <h2>'Getting words from the word universe...'</h2>
-
     if(gameLogic.gameFinished(this.props.randomWord, this.props.guesses)) {
       return (
-        <h2>{this.evaluateGameEndResult()}</h2>
+        <h2>{this.evaluateGameEndResult() + `The word was "${this.props.randomWord}"`}</h2>
       )
     }
+
     return (
       <div className="game">
         <Word randomWord={this.maskWord()} />
-        <KeyBoard makeGuess={this.props.makeGuess} />
-        <NewGameButton newGame={this.props.newGame} />
+        <KeyBoard makeGuess={this.props.makeGuess} guesses={this.props.guesses} />
+        <NewGameButton newGame={this.props.newGame}  />
       </div>
     )
   }
