@@ -23,7 +23,6 @@ export default class KeyBoard extends React.PureComponent {
     this.props.makeGuess(letter)
   }
 
-
   renderLetter = (charCode) => {
     const letter = String.fromCharCode(charCode)
     const disabledStatus = this.props.guesses.indexOf(letter) !== -1
@@ -37,7 +36,7 @@ export default class KeyBoard extends React.PureComponent {
   render() {
     return (
       <div id="keyboard">
-        { Array.from(Array(26).keys(), n => 97 + n).map(this.renderLetter) }
+        {Array.from(Array(26).keys(), n => 97 + n).map(this.renderLetter)}
       </div>
     )
   }

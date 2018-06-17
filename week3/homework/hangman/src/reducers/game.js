@@ -6,20 +6,20 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action = {}) => {
-  if(action.type === NEW_GAME ) {
+  switch(action.type) {
+    case NEW_GAME:
     return {
       guesses: [],
       randomWord: action.payload
     }
+    case MAKE_GUESS:
+      return {
+        ...state,
+        guesses: state.guesses.concat(action.payload.guesses)
+      }
+    default:
+      return state
   }
-
-  if(action.type === MAKE_GUESS) {
-    return {
-      ...state,
-      guesses: state.guesses.concat(action.payload.guess)
-    }
-  }
-  return state
 }
 
 export default reducer

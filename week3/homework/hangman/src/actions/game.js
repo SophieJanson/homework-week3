@@ -10,11 +10,11 @@ export function newGame() {
   }
 }
 
-export function makeGuess(guess) {
+export function makeGuess(guessedLetter) {
   return {
     type: MAKE_GUESS,
     payload: {
-      guess: guess,
+      guess: guessedLetter,
       guesses: []
     }
   }
