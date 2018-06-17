@@ -4,9 +4,9 @@ import Word from './Word'
 import KeyBoard from './KeyBoard'
 import { newGame, makeGuess } from '../actions/game'
 import { connect } from 'react-redux'
-import './WordContainer.css'
+import './GameContainer.css'
 
-class WordContainer extends React.PureComponent {
+class GameContainer extends React.PureComponent {
   componentDidMount() {
     this.props.newGame()
   }
@@ -52,4 +52,4 @@ const setStateToProps = (state) => {
   }
 }
 
-export default connect(setStateToProps, { newGame, makeGuess })(WordContainer)
+export default connect(setStateToProps, { newGame, makeGuess })(GameContainer)

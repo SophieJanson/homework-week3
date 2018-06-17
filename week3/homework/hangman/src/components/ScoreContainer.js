@@ -4,6 +4,7 @@ import Score from './Score'
 import NewGameButton from './NewGameButton'
 import { newGame } from '../actions/game'
 import { connect } from 'react-redux'
+import './ScoreContainer.css'
 
 
 class ScoreContainer extends React.PureComponent {
@@ -13,7 +14,7 @@ class ScoreContainer extends React.PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="score-summary">
         <Score wrongGuessCount={this.getWrongGuesses()} guesses={this.props.guesses}/>
         <NewGameButton newGame={this.props.newGame}/>
       </div>

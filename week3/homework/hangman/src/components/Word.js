@@ -3,6 +3,6 @@ import './Word.css'
 
 export default function Word(props) {
   return (
-    <h1 className="random-word">{props.randomWord}</h1>
+    <h2 className="random-word">{props.randomWord}</h2>
   )
 }

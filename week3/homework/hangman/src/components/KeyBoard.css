@@ -1,7 +1,7 @@
-.keyboard {
-  width: 70%;
+#keyboard {
+  max-width: 840px;
+  margn: auto;
 }
-
 .keyboard-letter {
   height: 60px;
   width: 60px;

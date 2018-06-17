@@ -1,5 +1,4 @@
 import * as React from 'react'
-import './Score.css'
 
 export default function Score(props) {
   if(props.guesses.length === 0) {
@@ -7,8 +6,8 @@ export default function Score(props) {
   }
 
   return (
-    <div className="score-summary">
-      <p>Wrong guesses: {props.wrongGuessCount}/6</p>
+    <div>
+      <p>Wrong guesses: <b>{props.wrongGuessCount}/6</b></p>
     </div>
   )
 }

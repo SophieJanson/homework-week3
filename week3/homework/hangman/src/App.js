@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router'
 import WelcomeMessage from './components/WelcomeMessage'
-import WordContainer from './components/WordContainer'
+import GameContainer from './components/GameContainer'
 import ScoreContainer from './components/ScoreContainer'
 import './App.css';
 
@@ -12,7 +12,7 @@ class App extends Component {
         <main>
           <h1>Hangman</h1>
           <Route exact path="/" component={WelcomeMessage} />
-          <Route path="/hangman" component={WordContainer} />
+          <Route path="/hangman" component={GameContainer} />
           <Route path="/hangman" component={ScoreContainer} />
         </main>
       </div>

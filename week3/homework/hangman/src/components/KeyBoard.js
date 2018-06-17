@@ -28,7 +28,7 @@ export default class KeyBoard extends React.PureComponent {
     const disabledStatus = this.props.guesses.indexOf(letter) !== -1
     return (
       <button key={charCode} className="keyboard-letter" onClick={() => this.makeGuessHandler(letter)} disabled={disabledStatus}>
-        <span>{letter}</span>
+        {letter}
       </button>
     )
   }

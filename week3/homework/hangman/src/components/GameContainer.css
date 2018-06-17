@@ -1,6 +1,7 @@
 .game {
-  width: 60%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   margin: auto;
+  align-items: center;
 }
