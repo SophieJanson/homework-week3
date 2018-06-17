@@ -1,16 +1,14 @@
 import * as React from 'react'
 import * as gameLogic from '../lib/game'
 import Word from './Word'
-import NewGameButton from './NewGameButton'
 import KeyBoard from './KeyBoard'
 import { newGame, makeGuess } from '../actions/game'
 import { connect } from 'react-redux'
-
+import './WordContainer.css'
 
 class WordContainer extends React.PureComponent {
   componentDidMount() {
     this.props.newGame()
-    console.log(this.props.randomWord);
   }
 
   maskWord = () => {
@@ -26,14 +24,14 @@ class WordContainer extends React.PureComponent {
   }
 
   evaluateGameEndResult = () => {
-    return gameLogic.isWinner(this.props.randomWord, this.props.guesses) ? 'Woohoo, you are amazing! You Won!' : 'You lost.'
+    return gameLogic.isWinner(this.props.randomWord, this.props.guesses) ? 'Woohoo, amazing, you won!' : 'You lost.'
   }
 
   render() {
     if (!this.props.randomWord) return <h2>'Getting words from the word universe...'</h2>
     if(gameLogic.gameFinished(this.props.randomWord, this.props.guesses)) {
       return (
-        <h2>{this.evaluateGameEndResult() + `The word was "${this.props.randomWord}"`}</h2>
+        <h2>{this.evaluateGameEndResult() + ` The word was "${this.props.randomWord}"`}</h2>
       )
     }
 
@@ -41,7 +39,6 @@ class WordContainer extends React.PureComponent {
       <div className="game">
         <Word randomWord={this.maskWord()} />
         <KeyBoard makeGuess={this.props.makeGuess} guesses={this.props.guesses} />
-        <NewGameButton newGame={this.props.newGame}  />
       </div>
     )
   }

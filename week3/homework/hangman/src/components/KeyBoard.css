@@ -1,16 +1,15 @@
 .keyboard {
-  max-width: 60%;
+  width: 70%;
 }
 
 .keyboard-letter {
   height: 60px;
   width: 60px;
-  font-size: 24px;
-  padding: auto;
-  margin: 2px;
+  text-transform: uppercase;
 }
 
 .keyboard-letter:disabled {
   background-color: lightgrey;
   color: #fff;
+  border: 1px solid grey;
 }

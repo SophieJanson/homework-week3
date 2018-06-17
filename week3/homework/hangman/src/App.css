@@ -4,14 +4,18 @@
   text-align: center;
 }
 
-body, span, h1 {
+body, span, h1, h2, button {
   font-family: 'IBM Plex Mono', monospace;
 }
 
 button {
+  font-size: 24px;
+  padding: auto;
+  margin: 2px;
   border: 1px solid #000;
   text-decoration: none;
   background-color: #fff;
+  cursor: pointer;
 }
 
 button:hover {
