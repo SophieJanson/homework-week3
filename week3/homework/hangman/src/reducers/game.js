@@ -8,14 +8,15 @@ const initialState = {
 const reducer = (state = initialState, action = {}) => {
   switch(action.type) {
     case NEW_GAME:
-    return {
-      guesses: [],
-      randomWord: action.payload
-    }
+      return {
+        guesses: [],
+        randomWord: action.payload
+      }
+
     case MAKE_GUESS:
       return {
         ...state,
-        guesses: state.guesses.concat(action.payload.guesses)
+        guesses: state.guesses.concat(action.payload.guess)
       }
     default:
       return state
